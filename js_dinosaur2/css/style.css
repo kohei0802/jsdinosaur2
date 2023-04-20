@@ -1,0 +1,154 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    /*height is set to 100% viewport height*/
+}
+
+#container {
+    height: 400px;
+    width: 1200px;
+    position: relative;
+    /*position: relative makes the container still gets the space in normal document flow
+    while moving away from original position*/
+    overflow: hidden;
+    /*overflow: scroll can make you scroll and view overflown stuff*/
+}
+
+#container #dino {
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    /*position: absolute means this dino is always positioned relative to #container and it doesn't
+    hold any space in normal document flow*/
+    bottom: 27px;
+    left: 20px;
+}
+
+#container #dino img {
+    height: 70px;
+    width: 70px;
+}
+
+.dinoActive {
+    animation: animateDino 0.5s linear infinite;
+}
+
+@keyframes animateDino {
+    0% {
+        bottom: 28px;
+    }
+
+    45%,
+    55% {
+        bottom: 160px;
+    }
+}
+
+#container #block {
+    height: 80px;
+    width: 125px;
+    position: absolute;
+    bottom: 20px;
+    right: -20px;
+}
+
+#container #block img {
+    height: 80px;
+    width: 125px;
+}
+
+.blockActive {
+    animation: blockAnimate 1.5s linear infinite;
+}
+
+@keyframes blockAnimate {
+
+    /*right: -125px. Why 125px? Just right enough to hide the block*/
+    0% {
+        right: -125px;
+    }
+
+    100% {
+        right: 100%;
+    }
+}
+
+#container #road {
+    position: absolute;
+    height: 30px;
+    width: 1200px;
+    bottom: 0;
+}
+
+#container #road img {
+    height: 30px;
+    width: 2600px;
+    position: absolute;
+    left: 0;
+    animation: none;
+}
+
+@keyframes roadAnimate {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: -1400px;
+    }
+}
+
+#container #cloud {
+    height: 80px;
+    width: 1200px;
+    border-radius: 40px;
+    position: absolute;
+    top: 30px;
+}
+
+#container #cloud img {
+    height: 80px;
+    width: 2000px;
+    position: absolute;
+    right: -2000px;
+    animation: none;
+}
+
+@keyframes cloudAnimate {
+    0% {
+        right: -2000px;
+    }
+
+    100% {
+        right: 100%;
+    }
+}
+
+#score {
+    /*auto means it'll expand and shrink according to its content*/
+    height: auto;
+    width: auto;
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+
+#gameOver {
+    display: none;
+    font-size: 70px;
+    position: absolute;
+    /*calculates the pos so that #gameover is center aligned*/
+    left: calc(50% - 181px);
+    top: calc(50% - 40px);
+    width: 362px;
+    height: 80px;
+    color: #525252;
+}
